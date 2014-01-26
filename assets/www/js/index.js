@@ -33,8 +33,31 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+//    	alert("document ready");
+//    	document.addEventListener("backbutton", onBackKeyDown, false);
+//    	document.getElementsByClassName('app')[0].style.backgroundImage="none";
+        var ref = window.open('http://www.noobaa.com/home/feed', '_blank', 'location=yes');
+        ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+        ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+        ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+        ref.addEventListener('exit', function(event) { alert(event.type); });
         app.receivedEvent('deviceready');
     },
+//    function onBackKeyDown() {
+//    	alert("back button pressed");
+//    },
+//    oBackButton: function(){
+//    	alert("back button pressed");
+//// 	       if($.mobile.activePage.is('#homepage')){
+//// 	    	   alert("activepage is homepage");
+////// 	           e.preventDefault();
+//// 	           navigator.app.exitApp();
+//// 	       }
+//// 	       else {
+//// 	    	   alert("navigator back");
+//// 	           navigator.app.backHistory()
+//// 	       }
+//    },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);

@@ -25,29 +25,6 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>noobaa</title>
-        <!--<script type="text/javascript">
-	        document.addEventListener("deviceready", onDeviceReady, false); 
-			function onDeviceReady() {
-	    		// Now safe to use the Codova API
-	 			window.location="http://www.noobaa.com"; }
- 		</script>-->
- 		<script type="text/javascript" charset="utf-8">
-
-		    // Wait for device API libraries to load
-		    //
-		    document.addEventListener("deviceready", onDeviceReady, false);
-		
-		    // device APIs are available
-		    //
-		    function onDeviceReady() {
-		         var ref = window.open('http://www.noobaa.com/home/feed', '_blank', 'location=yes');
-		         ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
-		         ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
-		         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-		         ref.addEventListener('exit', function(event) { alert(event.type); });
-		    }
-	
-	    </script>
     </head>
     <body>
         <div class="app">

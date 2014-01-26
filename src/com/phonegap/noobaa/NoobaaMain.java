@@ -22,12 +22,14 @@ package com.phonegap.noobaa;
 import java.util.concurrent.ExecutorService;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import org.apache.cordova.*;
 import com.phonegap.noobaa.R;
 
 public class NoobaaMain extends Activity implements CordovaInterface {
     CordovaWebView cwv;
+    boolean leave;
     /* Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,17 @@ public class NoobaaMain extends Activity implements CordovaInterface {
         Config.init(this);
         cwv.loadUrl(Config.getStartUrl());
     }
+    
+    
+    
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+	}
+
+
+
 	@Override
 	public Activity getActivity() {
 		// TODO Auto-generated method stub
@@ -50,17 +63,30 @@ public class NoobaaMain extends Activity implements CordovaInterface {
 	@Override
 	public Object onMessage(String arg0, Object arg1) {
 		// TODO Auto-generated method stub
+		String onPageStarted = "onPageStarted";
+		String homepage = "/android_asset/www/index.html";
+		String noobaa = "/home/feed/";
+		Uri uri = Uri.parse(arg1.toString());
+		String startPage = uri.getPath();
+		if(startPage.matches(homepage) && arg0 == onPageStarted && leave)
+		{
+			finish();
+		}
+		if(startPage.matches(noobaa))
+		{
+			leave = true;
+		}
 		return null;
 	}
 	@Override
 	public void setActivityResultCallback(CordovaPlugin arg0) {
 		// TODO Auto-generated method stub
-		
+		String bill = "1";
 	}
 	@Override
 	public void startActivityForResult(CordovaPlugin arg0, Intent arg1, int arg2) {
 		// TODO Auto-generated method stub
-		
+		String bill = "1";
 	}
 	
 }
